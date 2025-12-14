@@ -196,6 +196,135 @@ export async function registerRoutes(
     }
   });
 
+  // Comprehensive debug test route
+  app.get("/api/debug-all", async (req, res) => {
+    const debug = {
+      csvFile: null as any,
+      database: null as any,
+      parsing: null as any,
+      import: null as any
+    };
+
+    try {
+      // Test 1: CSV File Access
+      console.log('🔍 DEBUG: Testing CSV file access...');
+      try {
+        const { readFileSync } = await import('fs');
+        const csvContent = readFileSync('./accounts_export.csv', 'utf-8');
+        const lines = csvContent.trim().split('\n');
+        debug.csvFile = {
+          success: true,
+          exists: true,
+          fileSize: csvContent.length,
+          lineCount: lines.length,
+          headers: lines[0],
+          firstDataLine: lines[1] || 'No data line found',
+          sampleLines: lines.slice(0, 3)
+        };
+        console.log('✅ DEBUG: CSV file access successful');
+      } catch (error) {
+        debug.csvFile = {
+          success: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        };
+        console.log('❌ DEBUG: CSV file access failed:', error);
+      }
+
+      // Test 2: Database Connection
+      console.log('🔍 DEBUG: Testing database connection...');
+      try {
+        const storage = new (await import('./storage')).DatabaseStorage();
+        const existingAccounts = await storage.getSocialAccounts();
+        debug.database = {
+          success: true,
+          connected: true,
+          existingAccountCount: existingAccounts.length,
+          sampleAccounts: existingAccounts.slice(0, 3).map(acc => `${acc.platform}/${acc.username}`)
+        };
+        console.log('✅ DEBUG: Database connection successful');
+      } catch (error) {
+        debug.database = {
+          success: false,
+          connected: false,
+          error: error instanceof Error ? error.message : 'Unknown error'
+        };
+        console.log('❌ DEBUG: Database connection failed:', error);
+      }
+
+      // Test 3: CSV Parsing
+      if (debug.csvFile?.success) {
+        console.log('🔍 DEBUG: Testing CSV parsing...');
+        try {
+          const { readFileSync } = await import('fs');
+          const csvContent = readFileSync('./accounts_export.csv', 'utf-8');
+          const lines = csvContent.trim().split('\n');
+          
+          // Simple parsing test
+          const headers = lines[0].split(',');
+          const firstDataRow = lines[1]?.split(',') || [];
+          
+          debug.parsing = {
+            success: true,
+            headers,
+            firstRowData: firstDataRow,
+            requiredFieldsPresent: {
+              platform: headers.includes('platform'),
+              username: headers.includes('username'), 
+              credentialKey: headers.includes('credentialKey')
+            }
+          };
+          console.log('✅ DEBUG: CSV parsing successful');
+        } catch (error) {
+          debug.parsing = {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error'
+          };
+          console.log('❌ DEBUG: CSV parsing failed:', error);
+        }
+      }
+
+      // Test 4: Manual Import (only if database works)
+      if (debug.database?.success && debug.csvFile?.success) {
+        console.log('🔍 DEBUG: Testing manual import...');
+        try {
+          const { importAccountsFromCSV } = await import('./csv-import');
+          const importedCount = await importAccountsFromCSV();
+          debug.import = {
+            success: true,
+            importedCount,
+            message: `Successfully imported ${importedCount} accounts`
+          };
+          console.log('✅ DEBUG: Manual import successful');
+        } catch (error) {
+          debug.import = {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error'
+          };
+          console.log('❌ DEBUG: Manual import failed:', error);
+        }
+      }
+
+      res.json({
+        success: true,
+        debug,
+        summary: {
+          csvFile: debug.csvFile?.success || false,
+          database: debug.database?.success || false,
+          parsing: debug.parsing?.success || false,
+          import: debug.import?.success || false
+        }
+      });
+
+    } catch (error) {
+      console.log('💥 DEBUG: Overall test failed:', error);
+      res.status(500).json({
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error',
+        debug
+      });
+    }
+  });
+
   // Test CSV parsing without database operations
   app.get("/api/test-csv", async (req, res) => {
     try {

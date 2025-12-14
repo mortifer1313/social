@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App with AI Agent</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .ai-sidebar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .config-panel {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .config-panel h4 {
+            margin: 0 0 10px 0;
+        }
+        
+        .config-panel input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .config-panel button {
+            padding: 8px 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .data-analysis {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9f7ff;
+            border-radius: 6px;
+        }
+        
+        .sample-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+        
+        .data-card {
+            padding: 15px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .data-card:hover {
+            border-color: #007bff;
+            transform: translateY(-2px);
+        }
+        
+        .data-card h5 {
+            margin: 0 0 8px 0;
+            color: #333;
+        }
+        
+        .data-card p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>Security Analysis Dashboard</h1>
+            <p>This web application integrates with an AI agent for advanced security analysis and threat detection.</p>
+            
+            <div class="config-panel">
+                <h4>AI Agent Configuration</h4>
+                <input type="text" id="agent-url" placeholder="Agent URL (e.g., https://your-agent.ondigitalocean.app)" />
+                <input type="password" id="api-key" placeholder="API Key" />
+                <button onclick="updateAIConfig()">Update Configuration</button>
+                <div id="connection-status" style="margin-top: 10px; font-weight: bold;"></div>
+            </div>
+            
+            <h2>Sample Data for Analysis</h2>
+            <div class="sample-data">
+                <div class="data-card" onclick="analyzeData('network')">
+                    <h5>Network Logs</h5>
+                    <p>Analyze network traffic patterns and detect anomalies</p>
+                </div>
+                
+                <div class="data-card" onclick="analyzeData('security')">
+                    <h5>Security Events</h5>
+                    <p>Review security incidents and threat indicators</p>
+                </div>
+                
+                <div class="data-card" onclick="analyzeData('vulnerability')">
+                    <h5>Vulnerability Scan</h5>
+                    <p>Assess system vulnerabilities and risk levels</p>
+                </div>
+                
+                <div class="data-card" onclick="analyzeData('compliance')">
+                    <h5>Compliance Check</h5>
+                    <p>Verify compliance with security frameworks</p>
+                </div>
+            </div>
+            
+            <div class="data-analysis">
+                <h3>AI Analysis Results</h3>
+                <div id="analysis-results">
+                    <p>Click on any data card above to get AI-powered analysis results.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ai-sidebar">
+            <div id="ai-chat"></div>
+        </div>
+    </div>
+
+    <script src="ai-client.js"></script>
+    <script>
+        let aiClient = null;
+        let chatInterface = null;
+
+        // Initialize with default configuration
+        function initializeAI() {
+            const agentUrl = document.getElementById('agent-url').value || 'https://your-agent.ondigitalocean.app';
+            const apiKey = document.getElementById('api-key').value || 'gsC-9RG6LzpfzRVn-w70LyFef_qej_Q7';
+            
+            aiClient = new AIAgentClient({
+                agentUrl: agentUrl,
+                apiKey: apiKey
+            });
+            
+            chatInterface = new AIChatInterface('ai-chat', aiClient);
+            
+            // Test connection
+            testConnection();
+        }
+
+        function updateAIConfig() {
+            initializeAI();
+        }
+
+        async function testConnection() {
+            const statusEl = document.getElementById('connection-status');
+            statusEl.textContent = 'Testing connection...';
+            statusEl.style.color = '#666';
+            
+            if (!aiClient) {
+                statusEl.textContent = 'AI Client not initialized';
+                statusEl.style.color = 'red';
+                return;
+            }
+            
+            const result = await aiClient.getStatus();
+            if (result.success) {
+                statusEl.textContent = '✓ Connected to AI Agent';
+                statusEl.style.color = 'green';
+            } else {
+                statusEl.textContent = '✗ Connection failed: ' + result.error;
+                statusEl.style.color = 'red';
+            }
+        }
+
+        async function analyzeData(dataType) {
+            if (!aiClient) {
+                alert('Please configure the AI agent first');
+                return;
+            }
+
+            const resultsEl = document.getElementById('analysis-results');
+            resultsEl.innerHTML = '<p>🤖 AI is analyzing the data...</p>';
+
+            // Sample data based on type
+            const sampleData = {
+                network: {
+                    connections: 1247,
+                    suspicious_ips: ['192.168.1.100', '10.0.0.45'],
+                    blocked_attempts: 23,
+                    bandwidth_anomalies: 3
+                },
+                security: {
+                    failed_logins: 15,
+                    malware_detections: 2,
+                    policy_violations: 8,
+                    privilege_escalations: 1
+                },
+                vulnerability: {
+                    critical: 2,
+                    high: 8,
+                    medium: 23,
+                    low: 45,
+                    patched: 67
+                },
+                compliance: {
+                    frameworks: ['SOC2', 'PCI-DSS', 'GDPR'],
+                    compliance_score: 85,
+                    failed_controls: 3,
+                    pending_reviews: 5
+                }
+            };
+
+            const result = await aiClient.analyzeData(sampleData[dataType], dataType);
+            
+            if (result.success) {
+                const analysis = result.data.analysis || result.data.response || JSON.stringify(result.data);
+                resultsEl.innerHTML = `
+                    <h4>${dataType.charAt(0).toUpperCase() + dataType.slice(1)} Analysis</h4>
+                    <div style="background: white; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${analysis}</div>
+                `;
+            } else {
+                resultsEl.innerHTML = `<p style="color: red;">Analysis failed: ${result.error}</p>`;
+            }
+        }
+
+        // Initialize on page load
+        window.onload = function() {
+            // Set default values
+            document.getElementById('agent-url').value = 'https://your-agent.ondigitalocean.app';
+            document.getElementById('api-key').value = 'gsC-9RG6LzpfzRVn-w70LyFef_qej_Q7';
+            
+            initializeAI();
+        };
+
+        // Auto-save configuration
+        document.getElementById('agent-url').addEventListener('input', function() {
+            localStorage.setItem('ai-agent-url', this.value);
+        });
+
+        document.getElementById('api-key').addEventListener('input', function() {
+            localStorage.setItem('ai-api-key', this.value);
+        });
+
+        // Load saved configuration
+        const savedUrl = localStorage.getItem('ai-agent-url');
+        const savedKey = localStorage.getItem('ai-api-key');
+        
+        if (savedUrl) document.getElementById('agent-url').value = savedUrl;
+        if (savedKey) document.getElementById('api-key').value = savedKey;
+    </script>
+</body>
+</html>

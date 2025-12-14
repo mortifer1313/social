@@ -1,5 +1,4 @@
 import { readFileSync } from 'fs';
-import { parse } from 'csv-parse/sync';
 import type { InsertSocialAccount } from '@shared/schema';
 import { DatabaseStorage } from './storage';
 
@@ -12,16 +11,32 @@ export interface CSVAccountRecord {
   warmup_level: number;
 }
 
+// Simple CSV parser using built-in Node.js functionality
+function parseCSV(csvContent: string): CSVAccountRecord[] {
+  const lines = csvContent.trim().split('\n');
+  const headers = lines[0].split(',').map(h => h.trim());
+  const records: CSVAccountRecord[] = [];
+  
+  for (let i = 1; i < lines.length; i++) {
+    const values = lines[i].split(',').map(v => v.trim().replace(/^"|"$/g, '')); // Remove quotes
+    if (values.length >= 3) { // Minimum required fields
+      const record: any = {};
+      headers.forEach((header, index) => {
+        record[header] = values[index] || '';
+      });
+      records.push(record as CSVAccountRecord);
+    }
+  }
+  
+  return records;
+}
+
 export async function importAccountsFromCSV(csvPath: string = './accounts_export.csv'): Promise<number> {
   console.log('Loading accounts from CSV:', csvPath);
   
   try {
     const csvContent = readFileSync(csvPath, 'utf-8');
-    const records = parse(csvContent, {
-      columns: true,
-      skip_empty_lines: true,
-      trim: true
-    }) as CSVAccountRecord[];
+    const records = parseCSV(csvContent);
 
     console.log(`Found ${records.length} account records in CSV`);
 

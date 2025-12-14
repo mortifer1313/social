@@ -196,6 +196,26 @@ export async function registerRoutes(
     }
   });
 
+  // Manual CSV import endpoint for debugging
+  app.post("/api/import-csv", async (req, res) => {
+    try {
+      const { importAccountsFromCSV } = await import("./csv-import");
+      const importedCount = await importAccountsFromCSV();
+      res.json({ 
+        success: true, 
+        message: `Successfully imported ${importedCount} accounts`,
+        importedCount 
+      });
+    } catch (error) {
+      console.error('Manual CSV import failed:', error);
+      res.status(500).json({ 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Unknown error',
+        message: 'CSV import failed'
+      });
+    }
+  });
+
   // Get stealth settings defaults
   app.get("/api/stealth-settings/defaults", (req, res) => {
     res.json(defaultStealthSettings);

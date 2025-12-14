@@ -5,10 +5,13 @@ import { DatabaseStorage } from './storage';
 export interface CSVAccountRecord {
   platform: string;
   username: string;
-  credential_key: string;
-  status: string;
-  health_score: number;
-  warmup_level: number;
+  credentialKey: string;
+  displayName?: string;
+  status?: string;
+  proxyHost?: string;
+  proxyPort?: number;
+  proxyUsername?: string;
+  proxyPassword?: string;
 }
 
 // Robust CSV parser that handles quoted values with commas
@@ -94,11 +97,11 @@ export async function importAccountsFromCSV(csvPath: string = './accounts_export
       console.log(`🔍 Processing record: ${record.platform}/${record.username}`);
       
       // Validate required fields
-      if (!record.platform || !record.username || !record.credential_key) {
+      if (!record.platform || !record.username || !record.credentialKey) {
         console.warn('⚠️ Skipping invalid record (missing required fields):', {
           platform: record.platform,
           username: record.username,
-          credential_key: record.credential_key ? '[PROVIDED]' : '[MISSING]'
+          credentialKey: record.credentialKey ? '[PROVIDED]' : '[MISSING]'
         });
         skippedCount++;
         continue;
@@ -121,9 +124,13 @@ export async function importAccountsFromCSV(csvPath: string = './accounts_export
         const accountData: InsertSocialAccount = {
           platform: record.platform,
           username: record.username,
-          displayName: record.username,
-          credentialKey: record.credential_key,
-          status: record.status || 'active'
+          displayName: record.displayName || record.username,
+          credentialKey: record.credentialKey,
+          status: record.status || 'active',
+          proxyHost: record.proxyHost || null,
+          proxyPort: record.proxyPort || null,
+          proxyUsername: record.proxyUsername || null,
+          proxyPassword: record.proxyPassword || null
         };
 
         console.log(`💾 Creating account: ${JSON.stringify(accountData)}`);

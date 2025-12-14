@@ -1,16 +1,16 @@
-platform,username,credential_key,status,health_score,warmup_level
-facebook,alicia.legransie,ALICIA_FB_PASS,active,100,0
-facebook,danie.vanniekerk,DANIE_FB_PASS,active,100,0
-facebook,derian.gerber,DERIAN_FB_PASS,active,100,0
-facebook,johan.botha,JOHAN_FB_PASS,active,100,0
-facebook,johan.vangreunen,JOHANVG_FB_PASS,active,100,0
-instagram,alicia_ig,ALICIA_IG_PASS,active,100,0
-instagram,danie_ig,DANIE_IG_PASS,active,100,0
-instagram,derian_ig,DERIAN_IG_PASS,active,100,0
-instagram,johan_ig,JOHAN_IG_PASS,active,100,0
-instagram,johanvg_ig,JOHANVG_IG_PASS,active,100,0
-tiktok,alicia_tt,ALICIA_TT_PASS,active,100,0
-tiktok,danie_tt,DANIE_TT_PASS,active,100,0
-tiktok,derian_tt,DERIAN_TT_PASS,active,100,0
-tiktok,johan_tt,JOHAN_TT_PASS,active,100,0
-tiktok,johanvg_tt,JOHANVG_TT_PASS,active,100,0
+platform,username,credentialKey,displayName,status
+facebook,alicia.legransie,ALICIA_FB_PASS,Alicia Le Gransie,active
+facebook,danie.vanniekerk,DANIE_FB_PASS,Danie van Niekerk,active
+facebook,derian.gerber,DERIAN_FB_PASS,Derian Gerber,active
+facebook,johan.botha,JOHAN_FB_PASS,Johan Botha,active
+facebook,johan.vangreunen,JOHANVG_FB_PASS,Johan van Greunen,active
+instagram,alicia_ig,ALICIA_IG_PASS,Alicia IG,active
+instagram,danie_ig,DANIE_IG_PASS,Danie IG,active
+instagram,derian_ig,DERIAN_IG_PASS,Derian IG,active
+instagram,johan_ig,JOHAN_IG_PASS,Johan IG,active
+instagram,johanvg_ig,JOHANVG_IG_PASS,Johan VG IG,active
+tiktok,alicia_tt,ALICIA_TT_PASS,Alicia TT,active
+tiktok,danie_tt,DANIE_TT_PASS,Danie TT,active
+tiktok,derian_tt,DERIAN_TT_PASS,Derian TT,active
+tiktok,johan_tt,JOHAN_TT_PASS,Johan TT,active
+tiktok,johanvg_tt,JOHANVG_TT_PASS,Johan VG TT,active

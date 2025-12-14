@@ -60,6 +60,14 @@ app.use((req, res, next) => {
 });
 
 (async () => {
+  // Auto-import accounts from CSV if database is empty
+  try {
+    const { autoImportAccounts } = await import("./csv-import");
+    await autoImportAccounts();
+  } catch (error) {
+    log("Failed to auto-import accounts from CSV: " + error, "startup");
+  }
+
   await registerRoutes(httpServer, app);
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {

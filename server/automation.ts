@@ -58,10 +58,9 @@ async function postInstagramComment(
   console.log(`[Instagram] Posting comment to ${target} as @${account.username}`);
   console.log(`[Instagram] Comment: ${commentText.substring(0, 50)}...`);
   
-  await simulateTypingDelay(commentText.length);
-  
-  console.log(`[Instagram] Comment posted successfully`);
-  return { success: true };
+  // Import the actual automation module
+  const { postInstagramComment: realPostInstagram } = await import('./automation/instagram');
+  return await realPostInstagram(account, target, commentText, session);
 }
 
 async function postFacebookComment(
@@ -73,10 +72,9 @@ async function postFacebookComment(
   console.log(`[Facebook] Posting comment to ${target} as ${account.username}`);
   console.log(`[Facebook] Comment: ${commentText.substring(0, 50)}...`);
   
-  await simulateTypingDelay(commentText.length);
-  
-  console.log(`[Facebook] Comment posted successfully`);
-  return { success: true };
+  // Import the actual automation module
+  const { postFacebookComment: realPostFacebook } = await import('./automation/facebook');
+  return await realPostFacebook(account, target, commentText, session);
 }
 
 async function postTikTokComment(
@@ -88,14 +86,9 @@ async function postTikTokComment(
   console.log(`[TikTok] Posting comment to ${target} as @${account.username}`);
   console.log(`[TikTok] Comment: ${commentText.substring(0, 50)}...`);
   
-  await simulateTypingDelay(commentText.length);
-  
-  console.log(`[TikTok] Comment posted successfully`);
-  return { success: true };
+  // Import the actual automation module
+  const { postTikTokComment: realPostTikTok } = await import('./automation/tiktok');
+  return await realPostTikTok(account, target, commentText, session);
 }
 
-async function simulateTypingDelay(textLength: number): Promise<void> {
-  const typingSpeedMs = 50 + Math.random() * 100;
-  const delay = Math.min(textLength * typingSpeedMs, 5000);
-  await new Promise(resolve => setTimeout(resolve, delay));
-}
+// Removed simulation function - now using real automation modules

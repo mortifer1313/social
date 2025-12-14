@@ -196,6 +196,31 @@ export async function registerRoutes(
     }
   });
 
+  // Test CSV parsing without database operations
+  app.get("/api/test-csv", async (req, res) => {
+    try {
+      const { readFileSync } = await import('fs');
+      const csvContent = readFileSync('./accounts_export.csv', 'utf-8');
+      const lines = csvContent.trim().split('\n');
+      
+      res.json({
+        success: true,
+        csvExists: true,
+        fileSize: csvContent.length,
+        lineCount: lines.length,
+        headers: lines[0],
+        firstDataLine: lines[1] || 'No data line found',
+        sampleLines: lines.slice(0, 5)
+      });
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        csvExists: false,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  });
+
   // Manual CSV import endpoint for debugging
   app.post("/api/import-csv", async (req, res) => {
     try {

@@ -1,62 +1,16 @@
 platform,username,credential_key,status,health_score,warmup_level
-facebook,Alicialegramzie,FACEBOOK_PASSWORD_1,active,100,0
-facebook,Danie van niekerk,PROFILE_2_PASSWORD,active,100,0
-facebook,Derian Gerber,PROFILE_8_PASSWORD,active,100,0
-facebook,Johan Botha,PROFILE_4_PASSWORD,active,100,0
-facebook,Johan Van Greunen,PROFILE_9_PASSWORD,active,100,0
-facebook,Larry Posthumus,PROFILE_5_PASSWORD,active,100,0
-facebook,Rupert botha,PROFILE_6_PASSWORD,active,100,0
-facebook,Stefan le gransie,PROFILE_7_PASSWORD,active,100,0
-facebook,TJ van Heerden,PROFILE_10_PASSWORD,active,100,0
-facebook,Travis vermeulen,PROFILE_3_PASSWORD,active,100,0
-facebook,alicialegransie@gmail.com,Alicia1234,active,100,0
-facebook,botharupert71@gmail.com,Rupert4321,active,100,0
-facebook,dvanniekerk005@gmail.com,Dvn12345,active,100,0
-facebook,gerberderian@gmail.com,Gerber1234,active,100,0
-facebook,johannesvangreunen976@gmail.com,Johannes976,active,100,0
-facebook,jpboots1996@gmail.com,"Boots66,x",active,100,0
-facebook,larryposthumus@gmail.com,Larry.123,active,100,0
-facebook,legransiestefan@gmail.com,01Stefan23,active,100,0
-facebook,tjvanheerden83@gmail.com,TJvHeerden123,active,100,0
-facebook,travisv725@gmail.com,Travis.123,active,100,0
-instagram,Alicialegramzie,INSTAGRAM_PASSWORD_2,active,100,0
-instagram,Baasdaan80,PROFILE_2_PASSWORD,active,100,0
-instagram,Baasdaan80,Dvn12345,active,100,0
-instagram,DerianGerber,PROFILE_8_PASSWORD,active,100,0
-instagram,JBoots1996,PROFILE_4_PASSWORD,active,100,0
-instagram,JBoots1996,"Boots66,x",active,100,0
-instagram,Johanvan8602,PROFILE_9_PASSWORD,active,100,0
-instagram,Posthumus0290,PROFILE_5_PASSWORD,active,100,0
-instagram,TJvHeerden,PROFILE_10_PASSWORD,active,100,0
-instagram,TK-Aliciale26,INSTAGRAM_PASSWORD_1,active,100,0
-instagram,Vermeulen5157,PROFILE_3_PASSWORD,active,100,0
-instagram,alicialegransie@gmail.com,Alicia1234,active,100,0
-instagram,botharupert71@gmail.com,Rupert4321,active,100,0
-instagram,gerberderian@gmail.com,Gerber1234,active,100,0
-instagram,johannesvangreunen976@gmail.com,Johannes976,active,100,0
-instagram,larryposthumus@gmail.com,Larry.123,active,100,0
-instagram,legransiestefan,PROFILE_7_PASSWORD,active,100,0
-instagram,legransiestefan@gmail.com,01Stefan23,active,100,0
-instagram,rupertb7tha71,PROFILE_6_PASSWORD,active,100,0
-instagram,tjvanheerden83@gmail.com,TJvHeerden123,active,100,0
-instagram,vermeulen5157,Travis.123,active,100,0
-tiktok,Alicialegramzie,TIKTOK_PASSWORD_1,active,100,0
-tiktok,Danievanniekerk19,Dvn12345,active,100,0
-tiktok,Danievanniekerk19,PROFILE_2_PASSWORD,active,100,0
-tiktok,Deriangerber,PROFILE_8_PASSWORD,active,100,0
-tiktok,Johanvan8602,PROFILE_9_PASSWORD,active,100,0
-tiktok,LarryPosthumus,PROFILE_5_PASSWORD,active,100,0
-tiktok,Rupertbotha0,PROFILE_6_PASSWORD,active,100,0
-tiktok,Rupertbotha0,Rupert4321,active,100,0
-tiktok,Stefanlegransie,PROFILE_7_PASSWORD,active,100,0
-tiktok,TJvHeerden,PROFILE_10_PASSWORD,active,100,0
-tiktok,TJvHeerden,TJvHeerden@123,active,100,0
-tiktok,Travisvermeulen,PROFILE_3_PASSWORD,active,100,0
-tiktok,Travisvermeulen,Travis.123,active,100,0
-tiktok,aliciale26,Alicia1234,active,100,0
-tiktok,gerberderian@gmail.com,Gerber1234,active,100,0
-tiktok,johanbotha203,PROFILE_4_PASSWORD,active,100,0
-tiktok,johanbotha203,"Boots66,x",active,100,0
-tiktok,johannesvangreunen976@gmail.com,Johannes976,active,100,0
-tiktok,larryposthumus,Larry.123,active,100,0
-tiktok,legransiestefan@gmail.com,01Stefan23,active,100,0
+facebook,alicia.legransie,ALICIA_FB_PASS,active,100,0
+facebook,danie.vanniekerk,DANIE_FB_PASS,active,100,0
+facebook,derian.gerber,DERIAN_FB_PASS,active,100,0
+facebook,johan.botha,JOHAN_FB_PASS,active,100,0
+facebook,johan.vangreunen,JOHANVG_FB_PASS,active,100,0
+instagram,alicia_ig,ALICIA_IG_PASS,active,100,0
+instagram,danie_ig,DANIE_IG_PASS,active,100,0
+instagram,derian_ig,DERIAN_IG_PASS,active,100,0
+instagram,johan_ig,JOHAN_IG_PASS,active,100,0
+instagram,johanvg_ig,JOHANVG_IG_PASS,active,100,0
+tiktok,alicia_tt,ALICIA_TT_PASS,active,100,0
+tiktok,danie_tt,DANIE_TT_PASS,active,100,0
+tiktok,derian_tt,DERIAN_TT_PASS,active,100,0
+tiktok,johan_tt,JOHAN_TT_PASS,active,100,0
+tiktok,johanvg_tt,JOHANVG_TT_PASS,active,100,0

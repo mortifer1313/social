@@ -13,17 +13,23 @@ coverage
 .nyc_output
 dist
 .local
-attached_assets
 *.log
-recordings
 .config
 accounts_export.csv
 accounts_with_proxy.csv
 DATABASE_URL
 *.webm
 *.mp4
-*.png
-*.jpg
-*.jpeg
 *.zip
 *.pdf
+# Exclude most of attached_assets but keep required demo images
+attached_assets/generated_videos
+attached_assets/client_demo
+attached_assets/demo_videos
+attached_assets/*.txt
+attached_assets/*.md
+attached_assets/*.py
+attached_assets/*.nix
+# Keep demo screenshots that are referenced in the app
+!attached_assets/recordings/demo_*.png
+!attached_assets/demo_screenshots/

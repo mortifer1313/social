@@ -1,0 +1,62 @@
+Cookie “__cf_bm” has been rejected for invalid domain. socialmedia-uioie.ondigitalocean.app
+InstallTrigger is deprecated and will be removed in the future. content.js:3:19
+Cookie “__cf_bm” has been rejected for invalid domain. 2 index-DfT63llK.css
+Object { applications: {…}, author: null, browser_specific_settings: {…}, description: "Create Notes & Notebooks from anywhere on the web", developer: null, homepage_url: null, install_origins: null, manifest_version: 2, name: "Notes&Notebooks", short_name: null, … }
+content.js:1:9
+Cookie “__cf_bm” has been rejected for invalid domain. 2 index-C0NZ-zyt.js
+Cookie “__cf_bm” has been rejected for invalid domain. activities
+Cookie “__cf_bm” has been rejected for invalid domain. campaigns
+Cookie “__cf_bm” has been rejected for invalid domain. activities
+Cookie “__cf_bm” has been rejected for invalid domain. campaigns
+Cookie “__cf_bm” has been rejected for invalid domain. status
+Cookie “__cf_bm” has been rejected for invalid domain. summary
+Cookie “__cf_bm” has been rejected for invalid domain. status
+Cookie “__cf_bm” has been rejected for invalid domain. summary
+Cookie “__cf_bm” has been rejected for invalid domain. 2 accounts
+Cookie “__cf_bm” has been rejected for invalid domain. 6 import-csv
+XHRPOST
+https://socialmedia-uioie.ondigitalocean.app/api/accounts/import-csv
+[HTTP/2 500  265ms]
+
+	
+POST
+	https://socialmedia-uioie.ondigitalocean.app/api/accounts/import-csv
+Status
+500
+VersionHTTP/2
+Transferred742 B (32 B size)
+Referrer Policystrict-origin-when-cross-origin
+Request PriorityHighest
+DNS ResolutionSystem
+
+Cookie “__cf_bm” has been rejected for invalid domain. 2 import-csv
+Source map error: NetworkError when attempting to fetch resource.
+Resource URL: moz-extension://e1f16a57-f7b0-48f5-b01f-6e476a83e9b8/js/lib/purify.min.js
+Source Map URL: purify.min.js.map
+Source map error: NetworkError when attempting to fetch resource.
+Resource URL: moz-extension://d481891f-3f3e-40e7-a264-57d4cc4afb0f/browser-polyfill.js
+Source Map URL: browser-polyfill.js.map
+Source map error: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+Resource URL: https://socialmedia-uioie.ondigitalocean.app/%3Canonymous%20code%3E
+Source Map URL: installHook.js.map
+Source map error: map is undefined
+Resource URL: https://socialmedia-uioie.ondigitalocean.app/%3Canonymous%20code%3E
+Source Map URL: react_devtools_backend_compact.js.map
+inspect Import.csv
+Uncaught SyntaxError: unexpected token: identifier debugger eval code:1:9
+XHRPOST
+https://socialmedia-uioie.ondigitalocean.app/api/accounts/import-csv
+[HTTP/2 500  794ms]
+
+	
+POST
+	https://socialmedia-uioie.ondigitalocean.app/api/accounts/import-csv
+Status
+500
+VersionHTTP/2
+Transferred742 B (32 B size)
+Referrer Policystrict-origin-when-cross-origin
+Request PriorityHighest
+DNS ResolutionSystem
+
+Cookie “__cf_bm” has been rejected for invalid domain. 2 import-csv

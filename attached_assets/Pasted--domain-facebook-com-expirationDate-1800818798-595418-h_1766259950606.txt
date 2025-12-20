@@ -1,0 +1,92 @@
+[
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1800818798.595418,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "datr",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "bvhGaRM7QiLVDqZvdTV_rVWM"
+  },
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1800818832.976779,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "sb",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "bvhGafAvbvuv0e24knx55w2Z"
+  },
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1797795622.066666,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "c_user",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "61584950401773"
+  },
+  {
+    "domain": ".facebook.com",
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "presence",
+    "path": "/",
+    "sameSite": "unspecified",
+    "secure": true,
+    "session": true,
+    "storeId": "0",
+    "value": "C%7B%22t3%22%3A%5B%5D%2C%22utc3%22%3A1766258836678%2C%22v%22%3A1%7D"
+  },
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1766863689,
+    "hostOnly": false,
+    "httpOnly": false,
+    "name": "wd",
+    "path": "/",
+    "sameSite": "lax",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "1541x1078"
+  },
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1774035622.066722,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "fr",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "1tfMRzevtPMRkklkg.AWdWKhw9o7kUyUdOUM4T1E-mZ6JTEBly3Q1mEGJ1QWtcE2PN820.BpRvul..AAA.0.0.BpRvul.AWeBJyRWNtPkPBTSBEMP1kri9XI"
+  },
+  {
+    "domain": ".facebook.com",
+    "expirationDate": 1797795622.066745,
+    "hostOnly": false,
+    "httpOnly": true,
+    "name": "xs",
+    "path": "/",
+    "sameSite": "no_restriction",
+    "secure": true,
+    "session": false,
+    "storeId": "0",
+    "value": "43%3AtaaR1S2BLmWOXw%3A2%3A1766258828%3A-1%3A-1%3A%3AAczH4hTj9_iywchWZeck2pibAq1nNeVLjTbyAS0R4Q"
+  }
+]

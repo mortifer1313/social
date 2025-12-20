@@ -15,3 +15,15 @@ dist
 .local
 attached_assets
 *.log
+recordings
+.config
+accounts_export.csv
+accounts_with_proxy.csv
+DATABASE_URL
+*.webm
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.zip
+*.pdf

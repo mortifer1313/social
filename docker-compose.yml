@@ -9,6 +9,7 @@ services:
       - NODE_ENV=production
       - DATABASE_URL=${DATABASE_URL}
       - SESSION_SECRET=${SESSION_SECRET}
+      - REPL_ID=${REPL_ID}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - SMTP_HOST=${SMTP_HOST}
       - SMTP_PORT=${SMTP_PORT}
